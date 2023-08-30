@@ -1,6 +1,7 @@
 project:
-  title: "pangoro_slides"
+  #title: "pangoro_slides"
   output-dir: docs
+  type: website
 
 
 
