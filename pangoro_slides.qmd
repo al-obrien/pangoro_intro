@@ -1,0 +1,298 @@
+---
+title: "{pangoRo}"
+subtitle: "Peace of mind with PANGO Lineages"
+author: "Allen O'Brien"
+institute: "Principal Data Scientist @ PHSA DARE"
+date: "`r Sys.Date()`"
+date-format: "YYYY-MM-DD"
+format:
+  revealjs: 
+    embed-resources: false
+    theme: night
+editor: source
+---
+
+##  {data-menu-title="Applied Epi Intro" background-size="contain" background-image="./imgs/applied_epi_main.PNG"}
+
+## Applied Epi Community
+
+![](./imgs/applied_epi_topics.PNG)
+
+::: footer
+-   [Appied Epi Home](https://appliedepi.org/community/){preview-link="true"}
+-   [Community Page](https://community.appliedepi.org/){preview-link="false"}
+:::
+
+::: notes
+Book + Packages + Community Resources
+:::
+
+## PANGO Lineages
+
+::: {layout-ncol="2"}
+::: {#left-side}
+![](https://upload.wikimedia.org/wikipedia/commons/8/81/Pangolin_logo.svg)
+
+::: aside
+[https://cov-lineages.org/](https://cov-lineages.org/lineage_list.html){preview-link="true"}
+:::
+:::
+
+::: {#right-side reference-location="document"}
+-   Track spread of COVID-19 transmission
+-   Document & classify lineages
+-   Cluster of sequences associated with epidemiological event <sup>[ref](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7610519/)</sup>
+:::
+:::
+
+## Aliases
+
+::: columns
+::: {.column width="40%"}
+**Short Name**\
+BA.1\
+<br> EG.1
+:::
+
+::: {.column width="60%"}
+::: fragment
+**Long Name**\
+B.1.1.529.1\
+<br>
+:::
+
+::: fragment
+XBB.1.9.2.1
+:::
+
+::: fragment
+[BJ.1, BM.1.1.1]
+:::
+::: {.fragment style="font-size: 80%;"}
+BJ.1 &rarr; B.1.1.529.2.10.1.1\
+BM.1.1.1 &rarr; B.1.1.529.2.75.3.1.1.1
+:::
+:::
+:::
+
+## Alias struggles
+
+-   String format, requires parsing
+
+. . .
+
+-   Hierarchical relationship
+
+. . .
+
+-   Countless strains
+
+. . .
+
+-   Many of the tools are coded in Python [NextStrain Project](https://nextstrain.org/)
+
+## Install & Load {pangoRo}
+
+Based upon the Python package [pango_aliasor](https://github.com/corneliusroemer/pango_aliasor).
+<br>  
+Install the package from GitHub...
+```{r}
+#| code-line-numbers: false
+#| echo: true
+#| eval: false
+remotes::install_github('al-obrien/pangoRo')
+```
+<br>
+Load into session...
+```{r}
+#| code-line-numbers: false
+#| echo: true
+#| eval: true
+library(pangoRo)
+```
+
+## Accessing reference tables
+
+```{r, echo=TRUE, eval=FALSE}
+#| code-line-numbers: false
+fetch_pango_summary_tbl()
+```
+
+```{r, echo=FALSE, eval=TRUE}
+fetch_pango_alias() |> 
+  head(100)|>
+  knitr::kable(table.attr = "style=\"width: 100%\"") |> 
+  kableExtra::scroll_box(height = '200px') |> 
+  kableExtra::kable_styling(font_size = 16,
+                            full_width = TRUE,
+                            bootstrap_options = 'striped', 
+                            fixed_thead = list(enabled = TRUE,
+                                               background = 'black'))
+```
+```{r, echo=TRUE, eval=FALSE}
+#| code-line-numbers: false
+fetch_pango_summary_tbl()
+```
+
+```{r, echo=FALSE, eval=TRUE}
+fetch_pango_summary_tbl() |> 
+  head(100)|>
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = '270px') |> 
+  kableExtra::kable_styling(font_size = 16,
+                            bootstrap_options = 'striped', 
+                            fixed_thead = list(enabled = TRUE,
+                                               background = 'black'))
+```
+
+## Creating a PangoRo object 
+
+::: {style="font-size:0.75em;"}
+Most of the functions refer to a designated object (S3) in R. This allows one to specify how one wants to operate with the alias conversions. For instance, the object can be created to be in an 'offline' mode.
+:::
+
+```{r, echo=TRUE}
+my_pangoro <- pangoro()
+
+my_pangoro
+```
+
+
+## Basic Commands: <span style="color:#ebd04b"> Expand & Collapse </span>
+
+```{r, echo=TRUE}
+my_pangoro |> 
+  expand_pangoro(c('BA.1', 'BM.1')) |>
+  data.frame(fix.empty.names = FALSE)
+```
+<br>
+
+```{r, echo=TRUE}
+my_pangoro |> 
+  collapse_pangoro(c('B.1.1.529.1', 'B.1.1.529.2.75.3.1'))
+```
+
+## Basic Commands: <span style="color:#ebd04b"> Sort </span>
+
+Take lineage list and place in semi-sorted order.
+```{r, echo=TRUE}
+# Perform linear sort
+sorted_lin <- sort_pangoro(my_pangoro,
+                           c('BL.1', 'BA.1', 'BM.1', 'BQ.3'))
+
+# Examine sort after expanded from aliases
+expand_pangoro(my_pangoro, sorted_lin) |>
+  data.frame(fix.empty.names = FALSE)
+```
+
+::: aside
+Only "semi" sorts due to lineages branching from hiearhcical patterns and linear nature of basic sorts.
+:::
+
+## Basic Commands: <span style="color:#ebd04b"> Search </span>
+
+Examine if BL.1 is a child or parent of BA.2.
+```{r, echo=TRUE}
+# Is BL.1 a parent (up from) BA.2?
+my_pangoro |> 
+   search_pangoro('BA.2', 'BL.1', 'up') 
+```
+<br>
+```{r, echo=TRUE}
+# Is BL.1 a child (down from) BA.2?
+my_pangoro |> 
+   search_pangoro('BA.2', 'BL.1', 'down') 
+```
+
+## Advanced Use: <span style="color:#ebd04b"> Programmatic Look Ups </span>
+
+Group lineage list into:
+
+1. BA.2
+1. Recombinant
+1. Other
+
+## Dummy Data-set {.scrollable style="text-align: center"}
+
+<hr>
+
+```{r}
+set.seed(1243)
+lineage_vec <- c('B.1.617.2', 'B.1.1.529.2', 'BE', 'BL', 'BQ', 'CC', 'AY', 'EF', 'XBB', 'XAY', 'B.1.1.529.1.1')
+random_num <- sample(1:15, length(lineage_vec))
+covid_lineages <- unlist(mapply(FUN = rep, lineage_vec, random_num, SIMPLIFY = TRUE, USE.NAMES = FALSE))
+```
+
+```{r}
+#| tbl-cap: "Tally of COVID-19 Lineages as Aliases"
+#| tbl-cap-location: top
+knitr::kable(table(covid_lineages),
+             col.names = c('COVID-19 Lineages', 'N'), 
+             table.attr = "style=\"width: 60%\"",
+             format = 'html') 
+```
+
+## Advanced Use Continued...
+
+Examine lineages and expand aliases from `covid_lineages` data set.
+
+```{r, echo=TRUE}
+exp_lin <- my_pangoro |>
+  expand_pangoro(unique(covid_lineages))
+
+exp_lin
+```
+
+## Advanced Use Continued...
+
+Create look-up based on index matching in searches.
+
+```{r, echo=TRUE}
+#| output-location: slide
+
+# Create index for groups
+index_match_ba2 <- mapply('BA.2', unique(covid_lineages),
+                          FUN = \(x, y) search_pangoro(my_pangoro, x, y),
+                          USE.NAMES = FALSE)
+index_match_recom <- startsWith(exp_lin, 'X')
+
+# Create initial data set
+lineage_lu <- data.frame(Grouping = 'Other',
+                         Source = unique(covid_lineages),
+                         Expanded = exp_lin, row.names = NULL)
+
+# Overwite using index with groupings
+lineage_lu[index_match_ba2, 'Grouping'] <- 'BA.2'
+lineage_lu[index_match_recom, 'Grouping'] <- 'Recombinant'
+
+lineage_lu |>
+  knitr::kable(table.attr = "style=\"width: 100%\"") |>
+  kableExtra::scroll_box() |> 
+  kableExtra::kable_styling(font_size = 20,
+                            bootstrap_options = 'striped', 
+                            fixed_thead = list(enabled = TRUE,
+                                               background = 'black'))
+```
+
+
+## Advanced Use Continued...
+
+Merge back to original data set.
+
+```{r, echo=TRUE}
+merge(data.frame(lineage = covid_lineages),
+      lineage_lu,
+      by.x = 'lineage', by.y = 'Source') |>
+  knitr::kable(table.attr = "style=\"width: 100%\"") |> 
+  kableExtra::scroll_box(height = '300px') |> 
+  kableExtra::kable_styling(font_size = 20,
+                            bootstrap_options = 'striped', 
+                            fixed_thead = list(enabled = TRUE,
+                                               background = 'black'))
+```
+
+
+## Questions? {style="text-align: center; margin-top:250px;"}
+
+[{{< fa brands github >}} {pangoRo}](https://github.com/al-obrien/pangoRo)
+
