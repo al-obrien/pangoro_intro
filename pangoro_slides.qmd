@@ -115,7 +115,7 @@ library(pangoRo)
 
 ```{r, echo=TRUE, eval=FALSE}
 #| code-line-numbers: false
-fetch_pango_summary_tbl()
+fetch_pango_alias()
 ```
 
 ```{r, echo=FALSE, eval=TRUE}
