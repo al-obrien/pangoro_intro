@@ -1,5 +1,6 @@
 project:
   title: "pangoro_slides"
+  output-dir: docs
 
 
 
