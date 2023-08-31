@@ -87,7 +87,7 @@ BM.1.1.1 &rarr; B.1.1.529.2.75.3.1.1.1
 [bccdc.shinyapps.io/genomic_surveillance](https://bccdc.shinyapps.io/genomic_surveillance/)
 :::
 
-## Alias struggles
+## Alias struggles 
 
 -   String format, requires parsing
 
@@ -106,6 +106,8 @@ BM.1.1.1 &rarr; B.1.1.529.2.75.3.1.1.1
 ::: notes
 Past experience: may not receive the entire lineage relationship in surveillance data, only the final WGS result. No FASTA file or the like, just a test and WGS result, which may or may not follow a standard (i.e. full name or alias).
 :::
+
+## {data-menu-title="Alias Frustration" background-image="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3FsczVyZTBkeDczYzdsZDlqZ2hqdW9wZjVvM3MzdGcyemdib3g4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ToMjGpNzwVayAyJQteU/giphy.gif"}
 
 ## Install & Load {pangoRo}
 
