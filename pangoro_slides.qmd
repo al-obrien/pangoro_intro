@@ -75,6 +75,18 @@ BM.1.1.1 &rarr; B.1.1.529.2.75.3.1.1.1
 :::
 :::
 
+## Alias reporting 
+
+::: {.r-stack}
+![](./imgs/bccdc_lineage_table.PNG){width="600" height="480"}  
+
+![](./imgs/bccdc_lineage_fig.PNG){.fragment width="750" height="580"}
+:::
+
+::: footer
+[bccdc.shinyapps.io/genomic_surveillance](https://bccdc.shinyapps.io/genomic_surveillance/)
+:::
+
 ## Alias struggles
 
 -   String format, requires parsing
@@ -90,6 +102,10 @@ BM.1.1.1 &rarr; B.1.1.529.2.75.3.1.1.1
 . . .
 
 -   Many of the tools are coded in Python [NextStrain Project](https://nextstrain.org/)
+
+::: notes
+Past experience: may not receive the entire lineage relationship in surveillance data, only the final WGS result. No FASTA file or the like, just a test and WGS result, which may or may not follow a standard (i.e. full name or alias).
+:::
 
 ## Install & Load {pangoRo}
 
@@ -161,6 +177,8 @@ my_pangoro
 ## Basic Commands: <span style="color:#ebd04b"> Expand & Collapse </span>
 
 ```{r, echo=TRUE}
+#| code-line-numbers: "|2"
+
 my_pangoro |> 
   expand_pangoro(c('BA.1', 'BM.1')) |>
   data.frame(fix.empty.names = FALSE)
@@ -168,6 +186,8 @@ my_pangoro |>
 <br>
 
 ```{r, echo=TRUE}
+#| code-line-numbers: "|2"
+
 my_pangoro |> 
   collapse_pangoro(c('B.1.1.529.1', 'B.1.1.529.2.75.3.1'))
 ```
@@ -176,6 +196,8 @@ my_pangoro |>
 
 Take lineage list and place in semi-sorted order.
 ```{r, echo=TRUE}
+#| code-line-numbers: "|2"
+
 # Perform linear sort
 sorted_lin <- sort_pangoro(my_pangoro,
                            c('BL.1', 'BA.1', 'BM.1', 'BQ.3'))
@@ -249,6 +271,7 @@ Create look-up based on index matching in searches.
 
 ```{r, echo=TRUE}
 #| output-location: slide
+#| code-line-numbers: "|2,3,5|8-14"
 
 # Create index for groups
 index_match_ba2 <- mapply('BA.2', unique(covid_lineages),
