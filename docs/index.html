@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.3.353">
 
   <meta name="author" content="Allen O’Brien">
-  <meta name="dcterms.date" content="2023-08-31">
+  <meta name="dcterms.date" content="2023-09-05">
   <title>{pangoRo}</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -410,10 +410,28 @@ Allen O’Brien
     </div>
 </div>
 
-  <p class="date">2023-08-31</p>
+  <p class="date">2023-09-05</p>
 </section>
 <section id="section" class="slide level2" data-menu-title="Applied Epi Intro" data-background-size="contain" data-background-image="./imgs/applied_epi_main.PNG">
 <h2></h2>
+<aside class="notes">
+<ul>
+<li>Quick sidebar about Applied Epi Community<br>
+</li>
+<li>Just one aspect in addition to their book and packages…</li>
+<li>Discussion about {pangoRo} started here, excellent community</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="applied-epi-community" class="slide level2">
 <h2>Applied Epi Community</h2>
@@ -425,7 +443,10 @@ Allen O’Brien
 </ul>
 </div>
 <aside class="notes">
-<p>Book + Packages + Community Resources</p>
+<ul>
+<li>Covers many topics, likely closer to getting answers from peers than compared to stackoverflow</li>
+<li>Links provided</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -455,6 +476,19 @@ Allen O’Brien
 </div>
 </div>
 </div>
+<aside class="notes">
+<p>Topic today resolves around PANGO Lineages (PANGOLin). Popular way to identify COVID-19 variants. Anyone who has done reporting on COVID-19, or read the news, will recognize the alphanumeric soup.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <aside><div>
 <p><a href="https://cov-lineages.org/lineage_list.html" data-preview-link="true">https://cov-lineages.org/</a></p>
 </div></aside></section>
@@ -483,6 +517,21 @@ BM.1.1.1 → B.1.1.529.2.75.3.1.1.1</p>
 </div>
 </div>
 </div>
+<aside class="notes">
+<p>Work by having a letter followed by 3 sets of numbers before reverted back to a new letter. This creates a hierarchical pattern. Given the number of variants, it is often hard to navigate the groupings and relationships.</p>
+<p>Some short names you may have come across, BA.1 and EG.1… One likely recognized as Omicron when WHO still provided an alternative coding system. However, the other is actually a recombinant, which itself has aliased names, which when expanded are quite the mouthful.</p>
+<p>Delta = B.1.617.2 Omicron B.1.529</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="alias-reporting" class="slide level2">
 <h2>Alias reporting</h2>
@@ -493,6 +542,19 @@ BM.1.1.1 → B.1.1.529.2.75.3.1.1.1</p>
 <div class="footer">
 <p><a href="https://bccdc.shinyapps.io/genomic_surveillance/">bccdc.shinyapps.io/genomic_surveillance</a></p>
 </div>
+<aside class="notes">
+<p>Various strategies to tackle the aliases and other parent groupings. Commonly, a look-up table is used. This one is provided by the BCCDC dashboard and variant reports.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="alias-struggles" class="slide level2">
 <h2>Alias struggles</h2>
@@ -514,7 +576,9 @@ BM.1.1.1 → B.1.1.529.2.75.3.1.1.1</p>
 <li>Many of the tools are coded in Python <a href="https://nextstrain.org/">NextStrain Project</a></li>
 </ul>
 <aside class="notes">
+<p>Simply working with the aliases usually involves strings, which are difficult to sort with many out-of-the-box solutions as they ignore the relationship. Being hierarchical, rolling-up any of the detailed groupings is not obvious without a detailed look-up and parsing of the string components.</p>
 <p>Past experience: may not receive the entire lineage relationship in surveillance data, only the final WGS result. No FASTA file or the like, just a test and WGS result, which may or may not follow a standard (i.e.&nbsp;full name or alias).</p>
+<p>Tools exist to make it easier, many of which are in Python, sometimes without a direct equivalent in R.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -530,6 +594,19 @@ BM.1.1.1 → B.1.1.529.2.75.3.1.1.1</p>
 </section>
 <section id="section-1" class="slide level2" data-menu-title="Alias Frustration" data-background-image="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3FsczVyZTBkeDczYzdsZDlqZ2hqdW9wZjVvM3MzdGcyemdib3g4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ToMjGpNzwVayAyJQteU/giphy.gif">
 <h2></h2>
+<aside class="notes">
+<p>Frustations when working actively with COVID-19 PANGO lineages…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="install-load-pangoro" class="slide level2">
 <h2>Install &amp; Load {pangoRo}</h2>
@@ -542,6 +619,20 @@ Install the package from GitHub…</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pangoRo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<aside class="notes">
+<p>{pangoRo} is an R package to support interacting with PANGO lineage information. The core functionality was inspired by a similar package called pango_aliaser created by Cornelius Roemer for the Python language.</p>
+<p>Install and load as any other package from GitHub</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="accessing-reference-tables" class="slide level2">
 <h2>Accessing reference tables</h2>
@@ -2094,6 +2185,19 @@ Install the package from GitHub…</p>
 
 </div>
 </div>
+<aside class="notes">
+<p>One core functionality is providing a direct link to tables provided by PANGO, which was seen in earlier slides. This includes summary and alias tables.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="creating-a-pangoro-object" class="slide level2">
 <h2>Creating a PangoRo object</h2>
@@ -2105,392 +2209,412 @@ Install the package from GitHub…</p>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a>my_pangoro</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    alias                            lineage
-1       A                                   
-2       B                                   
-3       C                            B.1.1.1
-4       D                           B.1.1.25
-5       G                          B.1.258.2
-6       K                          B.1.1.277
-7       L                           B.1.1.10
-8       M                          B.1.1.294
-9       N                           B.1.1.33
-10      P                           B.1.1.28
-11      Q                            B.1.1.7
-12      R                          B.1.1.316
-13      S                          B.1.1.217
-14      U                         B.1.177.60
-15      V                         B.1.177.54
-16      W                         B.1.177.53
-17      Y                         B.1.177.52
-18      Z                         B.1.177.50
-19     AA                         B.1.177.15
-20     AB                         B.1.160.16
-21     AC                          B.1.1.405
-22     AD                          B.1.1.315
-23     AE                          B.1.1.306
-24     AF                          B.1.1.305
-25     AG                          B.1.1.297
-26     AH                          B.1.1.241
-27     AJ                          B.1.1.240
-28     AK                          B.1.1.232
-29     AL                          B.1.1.231
-30     AM                          B.1.1.216
-31     AN                          B.1.1.200
-32     AP                           B.1.1.70
-33     AQ                           B.1.1.39
-34     AS                          B.1.1.317
-35     AT                          B.1.1.370
-36     AU                          B.1.466.2
-37     AV                          B.1.1.482
-38     AW                          B.1.1.464
-39     AY                          B.1.617.2
-40     AZ                          B.1.1.318
-41     BA                          B.1.1.529
-42     BB                          B.1.621.1
-43     BC                    B.1.1.529.1.1.1
-44     BD                   B.1.1.529.1.17.2
-45     BE                    B.1.1.529.5.3.1
-46     BF                    B.1.1.529.5.2.1
-47     BG                   B.1.1.529.2.12.1
-48     BH                   B.1.1.529.2.38.3
-49     BJ                   B.1.1.529.2.10.1
-50     BK                   B.1.1.529.5.1.10
-51     BL                   B.1.1.529.2.75.1
-52     BM                   B.1.1.529.2.75.3
-53     BN                   B.1.1.529.2.75.5
-54     BP                   B.1.1.529.2.3.16
-55     BQ              B.1.1.529.5.3.1.1.1.1
-56     BR                   B.1.1.529.2.75.4
-57     BS                    B.1.1.529.2.3.2
-58     BT                   B.1.1.529.5.1.21
-59     BU                   B.1.1.529.5.2.16
-60     BV                   B.1.1.529.5.2.20
-61     BW                    B.1.1.529.5.6.2
-62     BY                   B.1.1.529.2.75.6
-63     BZ                    B.1.1.529.5.2.3
-64     CA                   B.1.1.529.2.75.2
-65     CB                   B.1.1.529.2.75.9
-66     CC              B.1.1.529.5.3.1.1.1.2
-67     CD                   B.1.1.529.5.2.31
-68     CE                   B.1.1.529.5.2.33
-69     CF                   B.1.1.529.5.2.27
-70     CG                   B.1.1.529.5.2.26
-71     CH             B.1.1.529.2.75.3.4.1.1
-72     CJ             B.1.1.529.2.75.3.1.1.1
-73     CK                   B.1.1.529.5.2.24
-74     CL                   B.1.1.529.5.1.29
-75     CM                   B.1.1.529.2.3.20
-76     CN                   B.1.1.529.5.2.21
-77     CP                    B.1.1.529.5.2.6
-78     CQ              B.1.1.529.5.3.1.4.1.1
-79     CR                   B.1.1.529.5.2.18
-80     CS                   B.1.1.529.4.1.10
-81     CT                   B.1.1.529.5.2.36
-82     CU                   B.1.1.529.5.1.26
-83     CV             B.1.1.529.2.75.3.1.1.3
-84     CW       B.1.1.529.5.3.1.1.1.1.1.1.14
-85     CY                    B.1.1.529.5.2.7
-86     CZ        B.1.1.529.5.3.1.1.1.1.1.1.1
-87     DA                   B.1.1.529.5.2.38
-88     DB                   B.1.1.529.5.2.25
-89     DC                    B.1.1.529.4.6.5
-90     DD                   B.1.1.529.2.3.21
-91     DE                   B.1.1.529.5.1.23
-92     DF                   B.1.1.529.5.10.1
-93     DG             B.1.1.529.5.2.24.2.1.1
-94     DH                   B.1.1.529.5.1.22
-95     DJ                   B.1.1.529.5.1.25
-96     DK        B.1.1.529.5.3.1.1.1.1.1.1.7
-97     DL                   B.1.1.529.5.1.15
-98     DM       B.1.1.529.5.3.1.1.1.1.1.1.15
-99     DN        B.1.1.529.5.3.1.1.1.1.1.1.5
-100    DP        B.1.1.529.5.3.1.1.1.1.1.1.8
-101    DQ                   B.1.1.529.5.2.47
-102    DR        B.1.1.529.5.3.1.1.1.1.1.1.3
-103    DS             B.1.1.529.2.75.5.1.3.1
-104    DT       B.1.1.529.5.3.1.1.1.1.1.1.32
-105    DU        B.1.1.529.5.3.1.1.1.1.1.1.2
-106    DV       B.1.1.529.2.75.3.4.1.1.1.1.1
-107    DW              B.1.1.529.5.3.1.1.2.1
-108    DY                   B.1.1.529.5.2.48
-109    DZ                   B.1.1.529.5.2.49
-110    EA       B.1.1.529.5.3.1.1.1.1.1.1.52
-111    EB                   B.1.1.529.5.1.35
-112    EC       B.1.1.529.5.3.1.1.1.1.1.10.1
-113    ED       B.1.1.529.5.3.1.1.1.1.1.1.18
-114    EE        B.1.1.529.5.3.1.1.1.1.1.1.4
-115    EF       B.1.1.529.5.3.1.1.1.1.1.1.13
-116    EG                          XBB.1.9.2
-117    EH       B.1.1.529.5.3.1.1.1.1.1.1.28
-118    EJ             B.1.1.529.2.75.5.1.3.8
-119    EK                         XBB.1.5.13
-120    EL                         XBB.1.5.14
-121    EM                          XBB.1.5.7
-122    EN       B.1.1.529.5.3.1.1.1.1.1.1.46
-123    EP             B.1.1.529.2.75.3.1.1.4
-124    EQ                   B.1.1.529.5.1.33
-125    ER       B.1.1.529.5.3.1.1.1.1.1.1.22
-126    ES       B.1.1.529.5.3.1.1.1.1.1.1.65
-127    ET       B.1.1.529.5.3.1.1.1.1.1.1.35
-128    EU                         XBB.1.5.26
-129    EV       B.1.1.529.5.3.1.1.1.1.1.1.71
-130    EW       B.1.1.529.5.3.1.1.1.1.1.1.38
-131    EY B.1.1.529.5.3.1.1.1.1.1.1.13.1.1.1
-132    EZ       B.1.1.529.5.3.1.1.1.1.1.1.43
-133    FA       B.1.1.529.5.3.1.1.1.1.1.1.10
-134    FB        B.1.1.529.5.3.1.1.1.1.1.2.1
-135    FC       B.1.1.529.5.3.1.1.1.1.1.1.72
-136    FD                         XBB.1.5.15
-137    FE                         XBB.1.18.1
-138    FF        B.1.1.529.5.3.1.1.1.1.1.8.2
-139    FG                         XBB.1.5.16
-140    FH                         XBB.1.5.17
-141    FJ      B.1.1.529.2.75.3.4.1.1.1.1.19
-142    FK      B.1.1.529.2.75.3.4.1.1.1.1.17
-143    FL                          XBB.1.9.1
-144    FM       B.1.1.529.5.3.1.1.1.1.1.1.53
-145    FN       B.1.1.529.5.3.1.1.1.1.1.1.74
-146    FP                         XBB.1.11.1
-147    FQ       B.1.1.529.5.3.1.1.1.1.1.1.39
-148    FR             B.1.1.529.2.75.5.1.2.3
-149    FS      B.1.1.529.2.75.3.4.1.1.1.1.12
-150    FT                         XBB.1.5.39
-151    FU                         XBB.1.16.1
-152    FV             B.1.1.529.2.3.20.8.1.1
-153    FW                         XBB.1.28.1
-154    FY                         XBB.1.22.1
-155    FZ                         XBB.1.5.47
-156    GA                         XBB.1.17.1
-157    GB                         XBB.1.5.46
-158    GC                         XBB.1.5.21
-159    GD                          XBB.1.9.3
-160    GE                         XBB.2.3.10
-161    GF                         XBB.1.5.24
-162    GG                         XBB.1.5.38
-163    GH                          XBB.2.6.1
-164    GJ                          XBB.2.3.3
-165    GK                         XBB.1.5.70
-166    GL                          XAY.1.1.1
-167    GM                          XBB.2.3.6
-168    GN                         XBB.1.5.73
-169    GP      B.1.1.529.2.75.3.4.1.1.1.1.11
-170    GQ       B.1.1.529.2.75.3.4.1.1.1.1.3
-171    GR                         XBB.1.5.42
-172    GS                         XBB.2.3.11
-173    GT                          XBC.1.6.1
-174    GU                         XBB.1.5.41
-175    GV                         XBB.1.5.48
-176    GW                         XBB.1.19.1
-177    GY                         XBB.1.16.2
-178    GZ                          XBB.2.3.4
-179    HA                         XBB.1.5.86
-180    HB                         XBB.1.34.2
-181    HC                         XBB.1.5.44
-182    HD                         XBB.1.5.93
-183    HE                   XBB.1.18.1.1.1.1
-184    HF                        XBB.1.16.13
-185    HG                          XBB.2.3.8
-186    HH                          XBB.2.3.2
-187    HJ                          XBB.1.5.1
-188    HK                    XBB.1.9.2.5.1.1
-189    HL                         XBB.1.42.2
-190    HM                         XBB.1.5.30
-191    HN                    XBB.1.9.1.1.5.1
-192    HP                         XBB.1.5.55
-193    HQ                         XBB.1.5.92
-194    HR                         XBB.1.5.77
-195    HS                         XBB.1.5.95
-196    HT                         XBB.1.5.49
-197    HU                         XBB.1.22.2
-198    HV                    XBB.1.9.2.5.1.6
-199    HW                          XBC.1.6.3
-200    HY                        XBB.1.5.100
-201    HZ                         XBB.1.5.68
-202    JA                         XBB.2.3.13
-203    JB                         XBB.1.5.53
-204    JC                         XBB.1.41.1
-205    JD                        XBB.1.5.102
-206    JE                    XBB.2.3.3.1.2.1
-207    JF                         XBB.1.16.6
-208    JG                    XBB.1.9.2.5.1.3
-209    JH        B.1.1.529.5.3.1.1.1.1.1.2.2
-210    XA                            B.1.1.7
-211    XA                            B.1.177
-212    XB                            B.1.634
-213    XB                            B.1.631
-214    XC                              AY.29
-215    XC                            B.1.1.7
-216    XD                          B.1.617.2
-217    XD                               BA.1
-218    XE                               BA.1
-219    XE                               BA.2
-220    XF                          B.1.617.2
-221    XF                               BA.1
-222    XG                               BA.1
-223    XG                               BA.2
-224    XH                               BA.1
-225    XH                               BA.2
-226    XJ                               BA.1
-227    XJ                               BA.2
-228    XK                               BA.1
-229    XK                               BA.2
-230    XL                               BA.1
-231    XL                               BA.2
-232    XM                             BA.1.1
-233    XM                               BA.2
-234    XN                               BA.1
-235    XN                               BA.2
-236    XP                             BA.1.1
-237    XP                               BA.2
-238    XQ                             BA.1.1
-239    XQ                               BA.2
-240    XR                             BA.1.1
-241    XR                               BA.2
-242    XS                          B.1.617.2
-243    XS                             BA.1.1
-244    XT                               BA.2
-245    XT                               BA.1
-246    XU                               BA.1
-247    XU                               BA.2
-248    XV                               BA.1
-249    XV                               BA.2
-250    XW                               BA.1
-251    XW                               BA.2
-252    XY                               BA.1
-253    XY                               BA.2
-254    XZ                               BA.2
-255    XZ                               BA.1
-256   XAA                               BA.1
-257   XAA                               BA.2
-258   XAB                               BA.1
-259   XAB                               BA.2
-260   XAC                               BA.2
-261   XAC                               BA.1
-262   XAC                               BA.2
-263   XAD                               BA.2
-264   XAD                               BA.1
-265   XAE                               BA.2
-266   XAE                               BA.1
-267   XAF                               BA.1
-268   XAF                               BA.2
-269   XAG                               BA.1
-270   XAG                               BA.2
-271   XAH                               BA.2
-272   XAH                               BA.1
-273   XAJ                          BA.2.12.1
-274   XAJ                               BA.4
-275   XAK                               BA.2
-276   XAK                               BA.1
-277   XAK                               BA.2
-278   XAL                               BA.1
-279   XAL                               BA.2
-280   XAM                             BA.1.1
-281   XAM                             BA.2.9
-282   XAN                               BA.2
-283   XAN                             BA.5.1
-284   XAP                               BA.2
-285   XAP                               BA.1
-286   XAQ                               BA.1
-287   XAQ                               BA.2
-288   XAR                               BA.1
-289   XAR                               BA.2
-290   XAS                               BA.5
-291   XAS                               BA.2
-292   XAT                          BA.2.3.13
-293   XAT                               BA.1
-294   XAU                             BA.1.1
-295   XAU                             BA.2.9
-296   XAV                               BA.2
-297   XAV                               BA.5
-298   XAW                               BA.2
-299   XAW                             AY.122
-300   XAY                               BA.2
-301   XAY                              AY.45
-302   XAY                               BA.2
-303   XAY                              AY.45
-304   XAY                               BA.2
-305   XAZ                             BA.2.5
-306   XAZ                               BA.5
-307   XAZ                             BA.2.5
-308   XBA                               BA.2
-309   XBA                              AY.45
-310   XBA                               BA.2
-311   XBA                              AY.45
-312   XBA                               BA.2
-313   XBB                               BJ.1
-314   XBB                           BM.1.1.1
-315   XBC                               BA.2
-316   XBC                          B.1.617.2
-317   XBC                               BA.2
-318   XBC                          B.1.617.2
-319   XBD                          BA.2.75.2
-320   XBD                               BF.5
-321   XBE                             BA.5.2
-322   XBE                             BE.4.1
-323   XBF                           BA.5.2.3
-324   XBF                               CJ.1
-325   XBG                            BA.2.76
-326   XBG                             BA.5.2
-327   XBH                          BA.2.3.17
-328   XBH                          BA.2.75.2
-329   XBJ                          BA.2.3.20
-330   XBJ                             BA.5.2
-331   XBK                             BA.5.2
-332   XBK                               CJ.1
-333   XBL                         XBB.1.5.57
-334   XBL                            BA.2.75
-335   XBL                         XBB.1.5.57
-336   XBM                            BA.2.76
-337   XBM                               BF.3
-338   XBN                            BA.2.75
-339   XBN                              XBB.3
-340   XBP                            BA.2.75
-341   XBP                               BQ.1
-342   XBQ                             BA.5.2
-343   XBQ                               CJ.1
-344   XBR                            BA.2.75
-345   XBR                               BQ.1
-346   XBS                            BA.2.75
-347   XBS                               BQ.1
-348   XBT                          BA.5.2.34
-349   XBT                            BA.2.75
-350   XBT                          BA.5.2.34
-351   XBU                          BA.2.75.3
-352   XBU                               BQ.1
-353   XBU                          BA.2.75.3
-354   XBV                               CR.1
-355   XBV                              XBB.1
-356   XBW                            XBB.1.5
-357   XBW                            BQ.1.14
-358   XBY                             BR.2.1
-359   XBY                                XBF
-360   XBZ                             BA.5.2
-361   XBZ                             EF.1.3
-362   XCA                            BA.2.75
-363   XCA                               BQ.1
-364   XCB                            BF.31.1
-365   XCB                            BQ.1.10
-366   XCC                           CH.1.1.1
-367   XCC                          XBB.1.9.1
-368   XCD                              XBB.1
-369   XCD                          BQ.1.1.25
-370   XCE                               BQ.1
-371   XCE                               FY.1
-372   XCF                                XBB
-373   XCF                               FE.1
-374   XCG                             BA.5.2
-375   XCG                              XBB.1
-376   XCH                             GK.1.3
-377   XCH                            XBB.1.9
-378   XCH                             GK.1.3
-379   XCJ                               GM.2
-380   XCJ                               FP.1
-381   XCJ                               GM.2
-382   XCK                           FL.1.5.1
-383   XCK                           BQ.1.2.2</code></pre>
+<pre><code>    alias                             lineage
+1       A                                    
+2       B                                    
+3       C                             B.1.1.1
+4       D                            B.1.1.25
+5       G                           B.1.258.2
+6       K                           B.1.1.277
+7       L                            B.1.1.10
+8       M                           B.1.1.294
+9       N                            B.1.1.33
+10      P                            B.1.1.28
+11      Q                             B.1.1.7
+12      R                           B.1.1.316
+13      S                           B.1.1.217
+14      U                          B.1.177.60
+15      V                          B.1.177.54
+16      W                          B.1.177.53
+17      Y                          B.1.177.52
+18      Z                          B.1.177.50
+19     AA                          B.1.177.15
+20     AB                          B.1.160.16
+21     AC                           B.1.1.405
+22     AD                           B.1.1.315
+23     AE                           B.1.1.306
+24     AF                           B.1.1.305
+25     AG                           B.1.1.297
+26     AH                           B.1.1.241
+27     AJ                           B.1.1.240
+28     AK                           B.1.1.232
+29     AL                           B.1.1.231
+30     AM                           B.1.1.216
+31     AN                           B.1.1.200
+32     AP                            B.1.1.70
+33     AQ                            B.1.1.39
+34     AS                           B.1.1.317
+35     AT                           B.1.1.370
+36     AU                           B.1.466.2
+37     AV                           B.1.1.482
+38     AW                           B.1.1.464
+39     AY                           B.1.617.2
+40     AZ                           B.1.1.318
+41     BA                           B.1.1.529
+42     BB                           B.1.621.1
+43     BC                     B.1.1.529.1.1.1
+44     BD                    B.1.1.529.1.17.2
+45     BE                     B.1.1.529.5.3.1
+46     BF                     B.1.1.529.5.2.1
+47     BG                    B.1.1.529.2.12.1
+48     BH                    B.1.1.529.2.38.3
+49     BJ                    B.1.1.529.2.10.1
+50     BK                    B.1.1.529.5.1.10
+51     BL                    B.1.1.529.2.75.1
+52     BM                    B.1.1.529.2.75.3
+53     BN                    B.1.1.529.2.75.5
+54     BP                    B.1.1.529.2.3.16
+55     BQ               B.1.1.529.5.3.1.1.1.1
+56     BR                    B.1.1.529.2.75.4
+57     BS                     B.1.1.529.2.3.2
+58     BT                    B.1.1.529.5.1.21
+59     BU                    B.1.1.529.5.2.16
+60     BV                    B.1.1.529.5.2.20
+61     BW                     B.1.1.529.5.6.2
+62     BY                    B.1.1.529.2.75.6
+63     BZ                     B.1.1.529.5.2.3
+64     CA                    B.1.1.529.2.75.2
+65     CB                    B.1.1.529.2.75.9
+66     CC               B.1.1.529.5.3.1.1.1.2
+67     CD                    B.1.1.529.5.2.31
+68     CE                    B.1.1.529.5.2.33
+69     CF                    B.1.1.529.5.2.27
+70     CG                    B.1.1.529.5.2.26
+71     CH              B.1.1.529.2.75.3.4.1.1
+72     CJ              B.1.1.529.2.75.3.1.1.1
+73     CK                    B.1.1.529.5.2.24
+74     CL                    B.1.1.529.5.1.29
+75     CM                    B.1.1.529.2.3.20
+76     CN                    B.1.1.529.5.2.21
+77     CP                     B.1.1.529.5.2.6
+78     CQ               B.1.1.529.5.3.1.4.1.1
+79     CR                    B.1.1.529.5.2.18
+80     CS                    B.1.1.529.4.1.10
+81     CT                    B.1.1.529.5.2.36
+82     CU                    B.1.1.529.5.1.26
+83     CV              B.1.1.529.2.75.3.1.1.3
+84     CW        B.1.1.529.5.3.1.1.1.1.1.1.14
+85     CY                     B.1.1.529.5.2.7
+86     CZ         B.1.1.529.5.3.1.1.1.1.1.1.1
+87     DA                    B.1.1.529.5.2.38
+88     DB                    B.1.1.529.5.2.25
+89     DC                     B.1.1.529.4.6.5
+90     DD                    B.1.1.529.2.3.21
+91     DE                    B.1.1.529.5.1.23
+92     DF                    B.1.1.529.5.10.1
+93     DG              B.1.1.529.5.2.24.2.1.1
+94     DH                    B.1.1.529.5.1.22
+95     DJ                    B.1.1.529.5.1.25
+96     DK         B.1.1.529.5.3.1.1.1.1.1.1.7
+97     DL                    B.1.1.529.5.1.15
+98     DM        B.1.1.529.5.3.1.1.1.1.1.1.15
+99     DN         B.1.1.529.5.3.1.1.1.1.1.1.5
+100    DP         B.1.1.529.5.3.1.1.1.1.1.1.8
+101    DQ                    B.1.1.529.5.2.47
+102    DR         B.1.1.529.5.3.1.1.1.1.1.1.3
+103    DS              B.1.1.529.2.75.5.1.3.1
+104    DT        B.1.1.529.5.3.1.1.1.1.1.1.32
+105    DU         B.1.1.529.5.3.1.1.1.1.1.1.2
+106    DV        B.1.1.529.2.75.3.4.1.1.1.1.1
+107    DW               B.1.1.529.5.3.1.1.2.1
+108    DY                    B.1.1.529.5.2.48
+109    DZ                    B.1.1.529.5.2.49
+110    EA        B.1.1.529.5.3.1.1.1.1.1.1.52
+111    EB                    B.1.1.529.5.1.35
+112    EC        B.1.1.529.5.3.1.1.1.1.1.10.1
+113    ED        B.1.1.529.5.3.1.1.1.1.1.1.18
+114    EE         B.1.1.529.5.3.1.1.1.1.1.1.4
+115    EF        B.1.1.529.5.3.1.1.1.1.1.1.13
+116    EG                           XBB.1.9.2
+117    EH        B.1.1.529.5.3.1.1.1.1.1.1.28
+118    EJ              B.1.1.529.2.75.5.1.3.8
+119    EK                          XBB.1.5.13
+120    EL                          XBB.1.5.14
+121    EM                           XBB.1.5.7
+122    EN        B.1.1.529.5.3.1.1.1.1.1.1.46
+123    EP              B.1.1.529.2.75.3.1.1.4
+124    EQ                    B.1.1.529.5.1.33
+125    ER        B.1.1.529.5.3.1.1.1.1.1.1.22
+126    ES        B.1.1.529.5.3.1.1.1.1.1.1.65
+127    ET        B.1.1.529.5.3.1.1.1.1.1.1.35
+128    EU                          XBB.1.5.26
+129    EV        B.1.1.529.5.3.1.1.1.1.1.1.71
+130    EW        B.1.1.529.5.3.1.1.1.1.1.1.38
+131    EY  B.1.1.529.5.3.1.1.1.1.1.1.13.1.1.1
+132    EZ        B.1.1.529.5.3.1.1.1.1.1.1.43
+133    FA        B.1.1.529.5.3.1.1.1.1.1.1.10
+134    FB         B.1.1.529.5.3.1.1.1.1.1.2.1
+135    FC        B.1.1.529.5.3.1.1.1.1.1.1.72
+136    FD                          XBB.1.5.15
+137    FE                          XBB.1.18.1
+138    FF         B.1.1.529.5.3.1.1.1.1.1.8.2
+139    FG                          XBB.1.5.16
+140    FH                          XBB.1.5.17
+141    FJ       B.1.1.529.2.75.3.4.1.1.1.1.19
+142    FK       B.1.1.529.2.75.3.4.1.1.1.1.17
+143    FL                           XBB.1.9.1
+144    FM        B.1.1.529.5.3.1.1.1.1.1.1.53
+145    FN        B.1.1.529.5.3.1.1.1.1.1.1.74
+146    FP                          XBB.1.11.1
+147    FQ        B.1.1.529.5.3.1.1.1.1.1.1.39
+148    FR              B.1.1.529.2.75.5.1.2.3
+149    FS       B.1.1.529.2.75.3.4.1.1.1.1.12
+150    FT                          XBB.1.5.39
+151    FU                          XBB.1.16.1
+152    FV              B.1.1.529.2.3.20.8.1.1
+153    FW                          XBB.1.28.1
+154    FY                          XBB.1.22.1
+155    FZ                          XBB.1.5.47
+156    GA                          XBB.1.17.1
+157    GB                          XBB.1.5.46
+158    GC                          XBB.1.5.21
+159    GD                           XBB.1.9.3
+160    GE                          XBB.2.3.10
+161    GF                          XBB.1.5.24
+162    GG                          XBB.1.5.38
+163    GH                           XBB.2.6.1
+164    GJ                           XBB.2.3.3
+165    GK                          XBB.1.5.70
+166    GL                           XAY.1.1.1
+167    GM                           XBB.2.3.6
+168    GN                          XBB.1.5.73
+169    GP       B.1.1.529.2.75.3.4.1.1.1.1.11
+170    GQ        B.1.1.529.2.75.3.4.1.1.1.1.3
+171    GR                          XBB.1.5.42
+172    GS                          XBB.2.3.11
+173    GT                           XBC.1.6.1
+174    GU                          XBB.1.5.41
+175    GV                          XBB.1.5.48
+176    GW                          XBB.1.19.1
+177    GY                          XBB.1.16.2
+178    GZ                           XBB.2.3.4
+179    HA                          XBB.1.5.86
+180    HB                          XBB.1.34.2
+181    HC                          XBB.1.5.44
+182    HD                          XBB.1.5.93
+183    HE                    XBB.1.18.1.1.1.1
+184    HF                         XBB.1.16.13
+185    HG                           XBB.2.3.8
+186    HH                           XBB.2.3.2
+187    HJ                           XBB.1.5.1
+188    HK                     XBB.1.9.2.5.1.1
+189    HL                          XBB.1.42.2
+190    HM                          XBB.1.5.30
+191    HN                     XBB.1.9.1.1.5.1
+192    HP                          XBB.1.5.55
+193    HQ                          XBB.1.5.92
+194    HR                          XBB.1.5.77
+195    HS                          XBB.1.5.95
+196    HT                          XBB.1.5.49
+197    HU                          XBB.1.22.2
+198    HV                     XBB.1.9.2.5.1.6
+199    HW                           XBC.1.6.3
+200    HY                         XBB.1.5.100
+201    HZ                          XBB.1.5.68
+202    JA                          XBB.2.3.13
+203    JB                          XBB.1.5.53
+204    JC                          XBB.1.41.1
+205    JD                         XBB.1.5.102
+206    JE                     XBB.2.3.3.1.2.1
+207    JF                          XBB.1.16.6
+208    JG                     XBB.1.9.2.5.1.3
+209    JH         B.1.1.529.5.3.1.1.1.1.1.2.2
+210    JJ                     XBB.1.9.2.5.1.4
+211    JK                           XBB.1.5.3
+212    JL B.1.1.529.2.75.3.4.1.1.1.1.17.1.3.2
+213    XA                             B.1.1.7
+214    XA                             B.1.177
+215    XB                             B.1.634
+216    XB                             B.1.631
+217    XC                               AY.29
+218    XC                             B.1.1.7
+219    XD                           B.1.617.2
+220    XD                                BA.1
+221    XE                                BA.1
+222    XE                                BA.2
+223    XF                           B.1.617.2
+224    XF                                BA.1
+225    XG                                BA.1
+226    XG                                BA.2
+227    XH                                BA.1
+228    XH                                BA.2
+229    XJ                                BA.1
+230    XJ                                BA.2
+231    XK                                BA.1
+232    XK                                BA.2
+233    XL                                BA.1
+234    XL                                BA.2
+235    XM                              BA.1.1
+236    XM                                BA.2
+237    XN                                BA.1
+238    XN                                BA.2
+239    XP                              BA.1.1
+240    XP                                BA.2
+241    XQ                              BA.1.1
+242    XQ                                BA.2
+243    XR                              BA.1.1
+244    XR                                BA.2
+245    XS                           B.1.617.2
+246    XS                              BA.1.1
+247    XT                                BA.2
+248    XT                                BA.1
+249    XU                                BA.1
+250    XU                                BA.2
+251    XV                                BA.1
+252    XV                                BA.2
+253    XW                                BA.1
+254    XW                                BA.2
+255    XY                                BA.1
+256    XY                                BA.2
+257    XZ                                BA.2
+258    XZ                                BA.1
+259   XAA                                BA.1
+260   XAA                                BA.2
+261   XAB                                BA.1
+262   XAB                                BA.2
+263   XAC                                BA.2
+264   XAC                                BA.1
+265   XAC                                BA.2
+266   XAD                                BA.2
+267   XAD                                BA.1
+268   XAE                                BA.2
+269   XAE                                BA.1
+270   XAF                                BA.1
+271   XAF                                BA.2
+272   XAG                                BA.1
+273   XAG                                BA.2
+274   XAH                                BA.2
+275   XAH                                BA.1
+276   XAJ                           BA.2.12.1
+277   XAJ                                BA.4
+278   XAK                                BA.2
+279   XAK                                BA.1
+280   XAK                                BA.2
+281   XAL                                BA.1
+282   XAL                                BA.2
+283   XAM                              BA.1.1
+284   XAM                              BA.2.9
+285   XAN                                BA.2
+286   XAN                              BA.5.1
+287   XAP                                BA.2
+288   XAP                                BA.1
+289   XAQ                                BA.1
+290   XAQ                                BA.2
+291   XAR                                BA.1
+292   XAR                                BA.2
+293   XAS                                BA.5
+294   XAS                                BA.2
+295   XAT                           BA.2.3.13
+296   XAT                                BA.1
+297   XAU                              BA.1.1
+298   XAU                              BA.2.9
+299   XAV                                BA.2
+300   XAV                                BA.5
+301   XAW                                BA.2
+302   XAW                              AY.122
+303   XAY                                BA.2
+304   XAY                               AY.45
+305   XAY                                BA.2
+306   XAY                               AY.45
+307   XAY                                BA.2
+308   XAZ                              BA.2.5
+309   XAZ                                BA.5
+310   XAZ                              BA.2.5
+311   XBA                                BA.2
+312   XBA                               AY.45
+313   XBA                                BA.2
+314   XBA                               AY.45
+315   XBA                                BA.2
+316   XBB                                BJ.1
+317   XBB                            BM.1.1.1
+318   XBC                                BA.2
+319   XBC                           B.1.617.2
+320   XBC                                BA.2
+321   XBC                           B.1.617.2
+322   XBD                           BA.2.75.2
+323   XBD                                BF.5
+324   XBE                              BA.5.2
+325   XBE                              BE.4.1
+326   XBF                            BA.5.2.3
+327   XBF                                CJ.1
+328   XBG                             BA.2.76
+329   XBG                              BA.5.2
+330   XBH                           BA.2.3.17
+331   XBH                           BA.2.75.2
+332   XBJ                           BA.2.3.20
+333   XBJ                              BA.5.2
+334   XBK                              BA.5.2
+335   XBK                                CJ.1
+336   XBL                          XBB.1.5.57
+337   XBL                             BA.2.75
+338   XBL                          XBB.1.5.57
+339   XBM                             BA.2.76
+340   XBM                                BF.3
+341   XBN                             BA.2.75
+342   XBN                               XBB.3
+343   XBP                             BA.2.75
+344   XBP                                BQ.1
+345   XBQ                              BA.5.2
+346   XBQ                                CJ.1
+347   XBR                             BA.2.75
+348   XBR                                BQ.1
+349   XBS                             BA.2.75
+350   XBS                                BQ.1
+351   XBT                           BA.5.2.34
+352   XBT                             BA.2.75
+353   XBT                           BA.5.2.34
+354   XBU                           BA.2.75.3
+355   XBU                                BQ.1
+356   XBU                           BA.2.75.3
+357   XBV                                CR.1
+358   XBV                               XBB.1
+359   XBW                             XBB.1.5
+360   XBW                             BQ.1.14
+361   XBY                              BR.2.1
+362   XBY                                 XBF
+363   XBZ                              BA.5.2
+364   XBZ                              EF.1.3
+365   XCA                             BA.2.75
+366   XCA                                BQ.1
+367   XCB                             BF.31.1
+368   XCB                             BQ.1.10
+369   XCC                            CH.1.1.1
+370   XCC                           XBB.1.9.1
+371   XCD                               XBB.1
+372   XCD                           BQ.1.1.25
+373   XCE                                BQ.1
+374   XCE                                FY.1
+375   XCF                                 XBB
+376   XCF                                FE.1
+377   XCG                              BA.5.2
+378   XCG                               XBB.1
+379   XCH                              GK.1.3
+380   XCH                             XBB.1.9
+381   XCH                              GK.1.3
+382   XCJ                                GM.2
+383   XCJ                                FP.1
+384   XCJ                                GM.2
+385   XCK                            FL.1.5.1
+386   XCK                            BQ.1.2.2
+387   XCL                                 XBB
+388   XCL                              GK.2.1
+389   XCM                             XBB.2.3
+390   XCM                              DV.7.1</code></pre>
 </div>
 </div>
+<aside class="notes">
+<p>Create a pangoro object for programmatic helper functions. Caches a copy of the alias table, or uses an offline version. Can then perform various basic operations specific to your questions of interest on aliases.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="basic-commands-expand-collapse" class="slide level2">
 <h2>Basic Commands: <span style="color:#ebd04b"> Expand &amp; Collapse </span></h2>
@@ -2565,6 +2689,19 @@ BQ.3 B.1.1.529.5.3.1.1.1.1.3</code></pre>
 <li>Recombinant</li>
 <li>Other</li>
 </ol>
+<aside class="notes">
+<p>Can combine functions to do more complex tasks. One of which is the programmatic creation of look-up tables based upon custom groupings required for reporting. In this simple case, we just choose 3 groups.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="dummy-data-set" class="slide level2 scrollable" style="text-align: center">
 <h2>Dummy Data-set</h2>
@@ -2630,6 +2767,19 @@ BQ.3 B.1.1.529.5.3.1.1.1.1.3</code></pre>
 
 </div>
 </div>
+<aside class="notes">
+<p>Need to categorize these by the 3 groups using the latest alias list available.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="advanced-use-continued" class="slide level2">
 <h2>Advanced Use Continued…</h2>
@@ -2661,7 +2811,7 @@ BQ.3 B.1.1.529.5.3.1.1.1.1.3</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19" data-code-line-numbers="|2,3,5|8-14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Create index for groups</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a>index_match_ba2 <span class="ot">&lt;-</span> <span class="fu">mapply</span>(<span class="st">'BA.2'</span>, <span class="fu">unique</span>(covid_lineages),</span>
-<span id="cb19-3"><a href="#cb19-3"></a>                          <span class="at">FUN =</span> \(x, y) <span class="fu">search_pangoro</span>(my_pangoro, x, y),</span>
+<span id="cb19-3"><a href="#cb19-3"></a>                          <span class="at">FUN =</span> \(x, y) <span class="fu">search_pangoro</span>(my_pangoro, x, y, <span class="st">'down'</span>),</span>
 <span id="cb19-4"><a href="#cb19-4"></a>                          <span class="at">USE.NAMES =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb19-5"><a href="#cb19-5"></a>index_match_recom <span class="ot">&lt;-</span> <span class="fu">startsWith</span>(exp_lin, <span class="st">'X'</span>)</span>
 <span id="cb19-6"><a href="#cb19-6"></a></span>
@@ -2683,6 +2833,20 @@ BQ.3 B.1.1.529.5.3.1.1.1.1.3</code></pre>
 <span id="cb19-22"><a href="#cb19-22"></a>                                               <span class="at">background =</span> <span class="st">'black'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
+<aside class="notes">
+<p>Lets search for which are children of BA.2 via <code>search_pangoro</code>, and can use the X pattern and flags from PANGOLin to identify the variants directly.</p>
+<p>Combine these three and we get an updated lookup</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="advanced-use-continued-1-output" class="slide level2 output-location-slide"><h2>Advanced Use Continued…</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
@@ -3243,6 +3407,20 @@ BQ.3 B.1.1.529.5.3.1.1.1.1.3</code></pre>
 
 </div>
 </div>
+<aside class="notes">
+<p>Using the lookup created, we can then merge it back to the original data set</p>
+<p>Why not do it directly? That is also an option. But given some testing data-sets are in the millions, it is more efficient to perform these operations on the unique patterns between the grouping categories and the unique variant list. Otherwise, you will have a lot of redundant searches.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="questions" class="slide level2" style="text-align: center; margin-top:250px;">
 <h2>Questions?</h2>

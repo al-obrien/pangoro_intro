@@ -14,6 +14,12 @@ editor: source
 
 ##  {data-menu-title="Applied Epi Intro" background-size="contain" background-image="./imgs/applied_epi_main.PNG"}
 
+::: notes
+- Quick sidebar about Applied Epi Community  
+- Just one aspect in addition to their book and packages...
+- Discussion about {pangoRo} started here, excellent community
+:::
+
 ## Applied Epi Community
 
 ![](./imgs/applied_epi_topics.PNG)
@@ -24,7 +30,8 @@ editor: source
 :::
 
 ::: notes
-Book + Packages + Community Resources
+- Covers many topics, likely closer to getting answers from peers than compared to stackoverflow
+- Links provided
 :::
 
 ## PANGO Lineages
@@ -43,6 +50,10 @@ Book + Packages + Community Resources
 -   Document & classify lineages
 -   Cluster of sequences associated with epidemiological event <sup>[ref](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7610519/)</sup>
 :::
+:::
+
+::: notes
+Topic today resolves around PANGO Lineages (PANGOLin). Popular way to identify COVID-19 variants. Anyone who has done reporting on COVID-19, or read the news, will recognize the alphanumeric soup.
 :::
 
 ## Aliases
@@ -75,6 +86,15 @@ BM.1.1.1 &rarr; B.1.1.529.2.75.3.1.1.1
 :::
 :::
 
+::: notes
+Work by having a letter followed by 3 sets of numbers before reverted back to a new letter. This creates a hierarchical pattern. Given the number of variants, it is often hard to navigate the groupings and relationships.
+
+Some short names you may have come across, BA.1 and EG.1... One likely recognized as Omicron when WHO still provided an alternative coding system. However, the other is actually a recombinant, which itself has aliased names, which when expanded are quite the mouthful.
+
+Delta = B.1.617.2
+Omicron B.1.529
+:::
+
 ## Alias reporting 
 
 ::: {.r-stack}
@@ -85,6 +105,10 @@ BM.1.1.1 &rarr; B.1.1.529.2.75.3.1.1.1
 
 ::: footer
 [bccdc.shinyapps.io/genomic_surveillance](https://bccdc.shinyapps.io/genomic_surveillance/)
+:::
+
+::: notes
+Various strategies to tackle the aliases and other parent groupings. Commonly, a look-up table is used. This one is provided by the BCCDC dashboard and variant reports.
 :::
 
 ## Alias struggles 
@@ -104,10 +128,18 @@ BM.1.1.1 &rarr; B.1.1.529.2.75.3.1.1.1
 -   Many of the tools are coded in Python [NextStrain Project](https://nextstrain.org/)
 
 ::: notes
+Simply working with the aliases usually involves strings, which are difficult to sort with many out-of-the-box solutions as they ignore the relationship. Being hierarchical, rolling-up any of the detailed groupings is not obvious without a detailed look-up and parsing of the string components.
+
 Past experience: may not receive the entire lineage relationship in surveillance data, only the final WGS result. No FASTA file or the like, just a test and WGS result, which may or may not follow a standard (i.e. full name or alias).
+
+Tools exist to make it easier, many of which are in Python, sometimes without a direct equivalent in R.
 :::
 
 ## {data-menu-title="Alias Frustration" background-image="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3FsczVyZTBkeDczYzdsZDlqZ2hqdW9wZjVvM3MzdGcyemdib3g4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ToMjGpNzwVayAyJQteU/giphy.gif"}
+
+::: notes
+Frustations when working actively with COVID-19 PANGO lineages...
+:::
 
 ## Install & Load {pangoRo}
 
@@ -128,6 +160,11 @@ Load into session...
 #| eval: true
 library(pangoRo)
 ```
+::: notes
+{pangoRo} is an R package to support interacting with PANGO lineage information. The core functionality was inspired by a similar package called pango_aliaser created by Cornelius Roemer for the Python language.
+
+Install and load as any other package from GitHub
+:::
 
 ## Accessing reference tables
 
@@ -163,6 +200,10 @@ fetch_pango_summary_tbl() |>
                                                background = 'black'))
 ```
 
+::: notes
+One core functionality is providing a direct link to tables provided by PANGO, which was seen in earlier slides. This includes summary and alias tables.
+:::
+
 ## Creating a PangoRo object 
 
 ::: {style="font-size:0.75em;"}
@@ -175,6 +216,9 @@ my_pangoro <- pangoro()
 my_pangoro
 ```
 
+::: notes
+Create a pangoro object for programmatic helper functions. Caches a copy of the alias table, or uses an offline version. Can then perform various basic operations specific to your questions of interest on aliases.
+:::
 
 ## Basic Commands: <span style="color:#ebd04b"> Expand & Collapse </span>
 
@@ -236,6 +280,10 @@ Group lineage list into:
 1. Recombinant
 1. Other
 
+::: notes
+Can combine functions to do more complex tasks. One of which is the programmatic creation of look-up tables based upon custom groupings required for reporting. In this simple case, we just choose 3 groups.
+:::
+
 ## Dummy Data-set {.scrollable style="text-align: center"}
 
 <hr>
@@ -255,6 +303,10 @@ knitr::kable(table(covid_lineages),
              table.attr = "style=\"width: 60%\"",
              format = 'html') 
 ```
+
+::: notes
+Need to categorize these by the 3 groups using the latest alias list available.
+:::
 
 ## Advanced Use Continued...
 
@@ -277,7 +329,7 @@ Create look-up based on index matching in searches.
 
 # Create index for groups
 index_match_ba2 <- mapply('BA.2', unique(covid_lineages),
-                          FUN = \(x, y) search_pangoro(my_pangoro, x, y),
+                          FUN = \(x, y) search_pangoro(my_pangoro, x, y, 'down'),
                           USE.NAMES = FALSE)
 index_match_recom <- startsWith(exp_lin, 'X')
 
@@ -299,6 +351,11 @@ lineage_lu |>
                                                background = 'black'))
 ```
 
+::: notes
+Lets search for which are children of BA.2 via `search_pangoro`, and can use the X pattern and flags from PANGOLin to identify the variants directly.
+
+Combine these three and we get an updated lookup
+:::
 
 ## Advanced Use Continued...
 
@@ -316,6 +373,11 @@ merge(data.frame(lineage = covid_lineages),
                                                background = 'black'))
 ```
 
+::: notes
+Using the lookup created, we can then merge it back to the original data set
+
+Why not do it directly? That is also an option. But given some testing data-sets are in the millions, it is more efficient to perform these operations on the unique patterns between the grouping categories and the unique variant list. Otherwise, you will have a lot of redundant searches.
+:::
 
 ## Questions? {style="text-align: center; margin-top:250px;"}
 
