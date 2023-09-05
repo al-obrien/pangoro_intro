@@ -254,7 +254,7 @@ expand_pangoro(my_pangoro, sorted_lin) |>
 ```
 
 ::: aside
-Only "semi" sorts due to lineages branching from hiearhcical patterns and linear nature of basic sorts.
+Only "semi" sorts due to lineages branching from hierarchical patterns and linear nature of basic sorts.
 :::
 
 ## Basic Commands: <span style="color:#ebd04b"> Search </span>
