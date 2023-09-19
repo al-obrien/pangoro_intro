@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.3.353">
 
   <meta name="author" content="Allen O’Brien">
-  <meta name="dcterms.date" content="2023-09-05">
+  <meta name="dcterms.date" content="2023-09-19">
   <title>{pangoRo}</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -102,6 +102,8 @@
   <link href="pangoro_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="pangoro_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="pangoro_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="pangoro_slides_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="pangoro_slides_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="pangoro_slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -410,7 +412,7 @@ Allen O’Brien
     </div>
 </div>
 
-  <p class="date">2023-09-05</p>
+  <p class="date">2023-09-19</p>
 </section>
 <section id="section" class="slide level2" data-menu-title="Applied Epi Intro" data-background-size="contain" data-background-image="./imgs/applied_epi_main.PNG">
 <h2></h2>
@@ -621,7 +623,7 @@ Install the package from GitHub…</p>
 </div>
 <aside class="notes">
 <p>{pangoRo} is an R package to support interacting with PANGO lineage information. The core functionality was inspired by a similar package called pango_aliaser created by Cornelius Roemer for the Python language.</p>
-<p>Install and load as any other package from GitHub</p>
+<p>Install and load as any other package from GitHub.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -3422,6 +3424,20 @@ BQ.3 B.1.1.529.5.3.1.1.1.1.3</code></pre>
           display:block!important;
       }</style></aside>
 </section>
+<section id="but-i-dont-use-r" class="slide level2">
+<h2>But I dont use R…</h2>
+<div>
+<ul>
+<li class="fragment"><strong>Python users:</strong> <a href="https://github.com/corneliusroemer/pango_aliasor">python_aliaser</a></li>
+<li class="fragment"><strong>Language agnostic:</strong> APIs (e.g.&nbsp;<a href="https://github.com/al-obrien/pangoRo2go"><i class="fa-brands fa-github" aria-label="github"></i> {pangoRo2Go}</a>)
+<ul>
+<li class="fragment">Posit Connect</li>
+<li class="fragment">Docker containers</li>
+<li class="fragment">…</li>
+</ul></li>
+</ul>
+</div>
+</section>
 <section id="questions" class="slide level2" style="text-align: center; margin-top:250px;">
 <h2>Questions?</h2>
 <p><a href="https://github.com/al-obrien/pangoRo"><i class="fa-brands fa-github" aria-label="github"></i> {pangoRo}</a></p>
@@ -3439,6 +3455,7 @@ BQ.3 B.1.1.529.5.3.1.1.1.1.3</code></pre>
   <script src="pangoro_slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="pangoro_slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="pangoro_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="pangoro_slides_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="pangoro_slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -3460,7 +3477,8 @@ BQ.3 B.1.1.529.5.3.1.1.1.1.3</code></pre>
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -3631,7 +3649,7 @@ BQ.3 B.1.1.529.5.3.1.1.1.1.3</code></pre>
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,

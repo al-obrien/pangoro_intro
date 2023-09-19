@@ -164,7 +164,7 @@ library(pangoRo)
 ::: notes
 {pangoRo} is an R package to support interacting with PANGO lineage information. The core functionality was inspired by a similar package called pango_aliaser created by Cornelius Roemer for the Python language.
 
-Install and load as any other package from GitHub
+Install and load as any other package from GitHub.
 :::
 
 ## Accessing reference tables
@@ -378,6 +378,16 @@ merge(data.frame(lineage = covid_lineages),
 Using the lookup created, we can then merge it back to the original data set
 
 Why not do it directly? That is also an option. But given some testing data-sets are in the millions, it is more efficient to perform these operations on the unique patterns between the grouping categories and the unique variant list. Otherwise, you will have a lot of redundant searches.
+:::
+
+## But I dont use R...
+
+::: {.incremental}
+- **Python users:** [python_aliaser](https://github.com/corneliusroemer/pango_aliasor)
+- **Language agnostic:** APIs (e.g. [{{< fa brands github >}} {pangoRo2Go}](https://github.com/al-obrien/pangoRo2go))
+   - Posit Connect
+   - Docker containers
+   - ...
 :::
 
 ## Questions? {style="text-align: center; margin-top:250px;"}
