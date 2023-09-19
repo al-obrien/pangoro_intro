@@ -9,6 +9,7 @@ format:
   revealjs: 
     embed-resources: false
     theme: night
+    chalkboard: true
 editor: source
 ---
 
